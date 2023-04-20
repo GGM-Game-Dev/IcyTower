@@ -6,12 +6,15 @@ using UnityEngine;
 public class FloorSpawnerScript : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] GameObject floorPrefab;
+    public GameObject floorPrefab;
+    
     [SerializeField] float xSpawnOffset;
     [SerializeField] float minTimeToSpawn;
     [SerializeField] float maxTimeToSpawn;
     [SerializeField] float xMinScale;
-    [SerializeField] float xMaxScale;
+    public float xMaxScale;
+
+    public float spawnSpeed = 0.03f;
 
 
     void Start()
@@ -38,6 +41,9 @@ public class FloorSpawnerScript : MonoBehaviour
                 transform.position.y,
                 transform.position.z);
             GameObject newObject = Instantiate(floorPrefab.gameObject, positionOfSpawnedObject, Quaternion.identity);
+            newObject.transform.localScale = new Vector3(currentXScale, 0.3f, 1);
+            newObject.GetComponent<AddForceScript>().velocity = spawnSpeed;
+            
 
             yield return new WaitForSeconds(timeBetweenSpawnsInSeconds);
         }

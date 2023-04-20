@@ -4,26 +4,35 @@ using UnityEngine;
 
 public class WallSpawnerScript : MonoBehaviour
 {
-    [SerializeField] GameObject wallPrefab;
-    [SerializeField] float timeBetweenSpawnsInSeconds;
-    // Start is called before the first frame update
+    public GameObject wallPrefab;
+
+
+
     void Start()
     {
-        
+        this.StartCoroutine(SpawnRoutine());
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
-    IEnumerator SpawnRoutine() 
-    {
-        while (true) 
-        {
-            GameObject newObject = Instantiate(wallPrefab.gameObject, transform.position, Quaternion.identity);
-            yield return new WaitForSeconds(timeBetweenSpawnsInSeconds);
 
+    }
+
+    IEnumerator SpawnRoutine()
+    {
+        while (true)
+        {
+
+            Vector3 positionOfSpawnedObject = new Vector3(
+                transform.position.x,
+                transform.position.y,
+                transform.position.z);
+            GameObject newObject = Instantiate(wallPrefab.gameObject, positionOfSpawnedObject, Quaternion.identity);
+            newObject.transform.localScale = new Vector3(1, 1, 1);
+
+
+            yield return new WaitForSeconds(5);
         }
     }
 }

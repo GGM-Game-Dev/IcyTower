@@ -5,7 +5,7 @@ using UnityEngine;
 public class AddForceScript : MonoBehaviour
 {
     Rigidbody2D rb;
-    [SerializeField] float velocity = 1f;
+    public float velocity = 1f;
     // Start is called before the first frame update
     void Start()
     {

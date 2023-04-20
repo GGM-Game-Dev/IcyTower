@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     bool isInAir =false;
     float moveHorizontal = 0;
     bool death = false;
+    [SerializeField] GameModeManager gameModeManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -76,6 +77,7 @@ public class PlayerController : MonoBehaviour
         death = true;
         animator.SetBool("Death", true);
         Instantiate(fireEffect, transform.position - new Vector3(0,1,0), Quaternion.identity);
+        gameModeManager.GameOver();
     }
 
 
