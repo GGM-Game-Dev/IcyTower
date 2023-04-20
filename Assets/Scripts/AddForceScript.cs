@@ -17,4 +17,7 @@ public class AddForceScript : MonoBehaviour
     {
         transform.position = new Vector3(transform.position.x, transform.position.y - velocity, transform.position.z);
     }
+    
+    
+
 }
