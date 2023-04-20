@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     float moveHorizontal = 0;
     bool death = false;
     [SerializeField] GameModeManager gameModeManager;
+    [SerializeField] CameraShake cameraShake;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,7 +47,7 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool("Walking", false);
         }
-        if (!isInAir && Input.GetKey(KeyCode.Space) && rb.velocity.y<1f && !death)
+        if (!isInAir && Input.GetKey(KeyCode.Space) && rb.velocity.y<2f && !death)
         {
             rb.AddForce(new Vector2(0f , jumpForce), ForceMode2D.Impulse);
         }
@@ -58,6 +59,7 @@ public class PlayerController : MonoBehaviour
             isInAir = false;
             animator.SetBool("InAir", false);
         }
+        
         if (collision.gameObject.tag == "DeadGround") 
         {
             KillPlayer();
@@ -70,6 +72,7 @@ public class PlayerController : MonoBehaviour
             isInAir = true ;
             animator.SetBool("InAir", true);
         }
+        
     }
 
     void KillPlayer() 
@@ -78,6 +81,9 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("Death", true);
         Instantiate(fireEffect, transform.position - new Vector3(0,1,0), Quaternion.identity);
         gameModeManager.GameOver();
+        StartCoroutine(cameraShake.Shake(0.8f, 0.3f));
+
+
     }
 
 

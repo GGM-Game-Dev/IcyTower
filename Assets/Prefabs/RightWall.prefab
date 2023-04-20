@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 5085713863725622192}
   - component: {fileID: 3088638112324995184}
   - component: {fileID: 5350641091320377485}
-  - component: {fileID: 8702200700040580908}
+  - component: {fileID: -7417289182457835957}
   m_Layer: 0
   m_Name: RightWall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,8 +114,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.001
   rotarion: 90
---- !u!70 &8702200700040580908
-CapsuleCollider2D:
+--- !u!61 &-7417289182457835957
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -128,5 +128,15 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 5.1200013, y: 5.6000013}
-  m_Direction: 0
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.12, y: 5.6}
+    newSize: {x: 5.12, y: 5.6}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 5.12, y: 5.6}
+  m_EdgeRadius: 0
