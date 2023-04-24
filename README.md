@@ -1,4 +1,5 @@
 # IcyTower
+[PLAY ON ITCH](https://amitmelamed.itch.io/icytower)
 We implemented a IcyTower like game in Unity 2D engine.
 
 The game have 4 stages where each stage have different Difficulty where the platform size is decreasing and the platform speed acceleration is increasing.
